@@ -2,15 +2,13 @@ import { useRef, useState } from "react";
 
 function App() {
   let textRef = useRef();
-  let [username, setUsername] = useState("hello");
+  let [userList, setUserList] = useState([]);
 
   const clickMe = () => {
-    // document.querySelector("#id1") == textRef.current
-    // alert(textRef.current.value);
+    const newValue = textRef.current.value;
+    const newList = [newValue, ...userList];
+    setUserList(newList);
 
-    console.log(textRef);
-
-    setUsername(username + " " + textRef.current.value);
     textRef.current.value = "";
   };
 
@@ -21,7 +19,9 @@ function App() {
       <input ref={textRef} type="text" />
       <input type="button" value="Cick Me" onClick={clickMe} />
 
-      <h1>{username}</h1>
+      {userList.map((item, index) => (
+        <h1 key={index}>{item}</h1>
+      ))}
     </div>
   );
 }
