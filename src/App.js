@@ -4,7 +4,11 @@ function App() {
   let [list, setList] = useState([]);
 
   const addNewRow = () => {
-    const newList = [...list, 1];
+    const newList = [...list, ""];
+    console.log(newList);
+
+    // As soon as this method is getting called
+    // Virtual DOM rerender the blocks.
     setList(newList);
   };
 
