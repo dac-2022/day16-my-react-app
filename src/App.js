@@ -1,14 +1,15 @@
-import { useState } from "react";
-
 function App() {
-  const [counter] = useState(10);
+  let myref = { color: "tomato", background: "yellow" };
 
   return (
     <div>
-      <h1>Counter application</h1>
-      <h1>{counter}</h1>
+      <h1 style={myref}>Hello World</h1>
+
+      <h1 style={{ color: "red", background: "yellow" }}>
+        Counter application
+      </h1>
     </div>
   );
 }
 
-export { App };
+export default App;
