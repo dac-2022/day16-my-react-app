@@ -1,38 +1,27 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function App() {
-  let [list, setList] = useState([]);
+  let textRef = useRef();
+  let [username, setUsername] = useState("hello");
 
-  const addNewRow = () => {
-    const newList = [...list, ""];
-    console.log(newList);
+  const clickMe = () => {
+    // document.querySelector("#id1") == textRef.current
+    // alert(textRef.current.value);
 
-    // As soon as this method is getting called
-    // Virtual DOM rerender the blocks.
-    setList(newList);
+    console.log(textRef);
+
+    setUsername(username + " " + textRef.current.value);
+    textRef.current.value = "";
   };
 
   return (
-    <div className="container-fluid">
-      <div className="row bg-primary align-items-center">
-        <div className="col text-light p-3">
-          <h1>Hello World</h1>
-        </div>
-        <div className="col ">
-          <input type="button" value="Add New Row" onClick={addNewRow} />
-        </div>
-      </div>
+    <div>
+      <h1>Hello World</h1>
 
-      {list.map((item, index) => (
-        <div key={index} className="row">
-          <div className="col alert alert-primary mb-1">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae eius
-            architecto amet tempore facilis aliquid odio alias incidunt error,
-            earum, delectus ipsa itaque dolore, suscipit expedita cupiditate
-            voluptatum? Laudantium, sint.
-          </div>
-        </div>
-      ))}
+      <input ref={textRef} type="text" />
+      <input type="button" value="Cick Me" onClick={clickMe} />
+
+      <h1>{username}</h1>
     </div>
   );
 }
