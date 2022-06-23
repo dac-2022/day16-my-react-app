@@ -14,13 +14,24 @@ function App() {
 
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1 className="bg-primary p-3 text-light">Hello World</h1>
 
-      <input ref={textRef} type="text" />
-      <input type="button" value="Cick Me" onClick={clickMe} />
+      <input
+        className="form-control form-control-lg"
+        ref={textRef}
+        type="text"
+      />
+      <input
+        className="btn btn-lg btn-primary w-100 my-1"
+        type="button"
+        value="Cick Me"
+        onClick={clickMe}
+      />
 
       {userList.map((item, index) => (
-        <h1 key={index}>{item}</h1>
+        <h1 className="alert alert-primary" key={index}>
+          {item}
+        </h1>
       ))}
     </div>
   );
