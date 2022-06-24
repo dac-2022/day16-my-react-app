@@ -19,6 +19,17 @@ function App() {
       <input ref={textRef} type="text" />
       <input type="button" value="Cick Me" onClick={clickMe} />
 
+      {userList.map(() => (
+        <h1>Hello</h1>
+      ))}
+
+      <hr />
+      {userList.map(() => {
+        return <h1>Hello</h1>;
+      })}
+
+      <hr />
+
       <div className="row">
         {userList.map((item, index) => (
           <div
